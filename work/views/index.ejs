@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="javascripts/angular/angular.min.js"></script>
+    <script src = "javascripts/phone.js"></script>
+    <link rel="stylesheet" href="stylesheets/mui.min.css">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var placeholder=document.querySelector(".mui-placeholder");
+            var input = document.querySelector(".mui-input-clear");
+
+            placeholder.onclick = function(){
+                this.style.width = "20px";
+                input.blur();
+            };
+
+            input.onblur = function(){
+                placeholder.style.width = "100%";
+            }
+        }
+    </script>
+</head>
+<body ng-app="myapp">
+    <ul class="mui-table-view" ng-controller="phone">
+        <li class="mui-table-view-cell" ng-repeat="item in data">
+            <a href="tel:{{item.phone}}" class="mui-navigate-right">
+                <span>{{item.name}}</span>
+                <span>{{item.phone}}</span>
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
